@@ -32,7 +32,7 @@ Each script corresponds directly to a figure in the manuscript:
 - `Figure_S2_multiple_randomized_localized_event.py`  
   Surface records generated from multiple localized events with randomized initiation times and positions.
 
-- `Figure_S2B_surface_record_single_source.py`  
+- `Figure_S1B_surface_record_single_source.py`  
   Additional single-source surface record examples.
 
 ## Notes
