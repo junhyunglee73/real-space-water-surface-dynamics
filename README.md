@@ -1,8 +1,8 @@
-# Real-Space Deterministic Water Surface Dynamics
+# Execution-Deterministic Water Surface Dynamics
 
 This repository contains the simulation codes used in the manuscript:
 
-"Real-Space Deterministic Water Surface Dynamics via Temporal Recording of Local Direction Alternating Force"
+"Execution-Deterministic Water Surface Dynamics via Temporal Recording of Local Direction Alternating Force"
 
 The codes implement a deterministic framework for modeling water surface behavior based on localized force–mass interactions and temporal causal records.
 
