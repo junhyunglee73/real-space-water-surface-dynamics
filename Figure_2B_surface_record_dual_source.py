@@ -61,11 +61,6 @@ def H_time(tau):
     return (tau >= 0).astype(float)
 
 
-def H_space(r_dist):
-    """Spatial admissibility of information."""
-    return 1.0
-
-
 # ========================================
 # Hookean State Operator (Non-wave)
 # ========================================
@@ -84,7 +79,7 @@ def causal_record_kernel(t_current, r_dist):
     tau = t_current - (r_dist / V_record)
 
     # Causal horizon
-    H_causal = H_time(tau) * H_space(r_dist)
+    H_causal = H_time(tau)
 
     # Hookean state history
     decay = np.exp(-gamma * tau)

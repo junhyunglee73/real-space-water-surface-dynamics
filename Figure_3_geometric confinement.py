@@ -62,11 +62,6 @@ def H_time(tau):
     return (tau >= 0).astype(float)
 
 
-def H_space():
-    """Spatial causality: is medium receptive?"""
-    return 1.0
-
-
 def hookean_state_operator(tau):
     """Local deterministic state operator."""
     return np.cos(natural_freq * tau)
@@ -86,7 +81,7 @@ def causal_record_kernel(t_current, src):
 
     tau = local_time - (r / V_record)
 
-    H_causal = H_time(tau) * H_space()
+    H_causal = H_time(tau)
     decay = np.exp(-gamma * tau)
     state = hookean_state_operator(tau)
 
