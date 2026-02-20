@@ -1,8 +1,8 @@
-# Execution-Deterministic Water Surface Dynamics
+# Deterministic Origin of Symmetry in Confined Water Surfaces: A Structural Approach Based on Causal Recording of Local Rules 
 
 This repository contains the simulation codes used in the manuscript:
 
-"Execution-Deterministic Water Surface Dynamics via Temporal Recording of Local Direction Alternating Force"
+"Deterministic Origin of Symmetry in Confined Water Surfaces: A Structural Approach Based on Causal Recording of Local Rules "
 
 The codes implement a deterministic framework for modeling water surface behavior based on localized force–mass interactions and temporal causal records.
 
