@@ -30,8 +30,13 @@ This repository contains the simulation codes used in the manuscript:
 - `Figure_S2_Validation of spatial propagation arrest via the beta_field.py`  
   Surface records generated from multiple localized events with randomized initiation times and positions.
 
-- `Figure_S3_symmetrical geometric order randomized event.py`  
-  Robustness of temporal symmetry under stochastic spatial and temporal inputs
+- `Figure_S3_Simulated_water_surface_center.py
+
+- `Figure_S4_symmetrical_geometric_order_randmonized_event.py
+
+- `Figure_S5_simulated_water_surface_external_dissipation.py
+
+- `Figure_S6_simulated_water_surface_glass.py
 
 ## Notes
 The scripts are provided to support transparency and reproducibility of the proposed formulation. 
