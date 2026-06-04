@@ -5,9 +5,9 @@ from matplotlib.colors import TwoSlopeNorm
 # ========================================
 # System Configuration & Geometry 
 # ========================================
-margin = 10  # wall margin
-w_inside = 800
-h_inside = 800
+margin = 50  # wall margin
+w_inside = 450  
+h_inside = 450
 
 WIDTH = w_inside + (2 * margin)  
 HEIGHT = h_inside + (2 * margin) 
@@ -78,7 +78,7 @@ def causal_record_kernel(t_current, src):
     decay = np.exp(-gamma * tau)
     state = np.cos(natural_freq * tau)
 
-    return src["force"] * decay * state * H_causal * beta_field
+    return src["force"] * beta_field * decay * state * H_causal 
 
 def get_dist_to_walls(pos):
     return {
@@ -97,7 +97,7 @@ capture_times  = []
 capture_steps = [500, 750, 1000, 1250, 1500, 1750, 2000] 
 
 for step in range(T_steps + 1):
-    current_time = step * dt
+    current_time = step * dt * beta_field[cy_center, cx_center]  # Modulate time progression by beta at the center
     
     # --- Infinite Boundary Regeneration (Chain Reaction) ---
     new_borns = []
@@ -134,7 +134,6 @@ for step in range(T_steps + 1):
 
     # --- Snapshot capture ---
     if step in capture_steps:
-        # Summing surfaces from all currently active sources
         surface = np.sum([causal_record_kernel(current_time, s) for s in sources], axis=0)
         snap_surface_2d.append(surface.copy())
         snap_cross_1d.append(surface[cy_center, :].copy())

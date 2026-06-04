@@ -21,10 +21,10 @@ b_wall, t_wall = margin, HEIGHT - margin
 beta_field[b_wall : t_wall, l_wall : r_wall] = 1.0
 
 input_force_magnitude = 5.0
-A_field = input_force_magnitude * beta_field 
+
 
 # ========================================
-# Physical Parameters (The Causes)
+# Physical Parameters 
 # ========================================
 stiffness_k = 0.5
 mass_m = 50.0
@@ -65,8 +65,9 @@ capture_times   = []
 capture_steps = [50, 150, 300, 450, 500]
 
 for step in range(T_steps + 1):
-    current_time = step * dt
-
+     # Modulate time progression by beta at the source location
+    current_time = step * dt * beta_field[cy, cx] 
+    A_field = input_force_magnitude * beta_field 
     surface_record = A_field * causal_record_kernel(current_time, dist_map)
 
     if step in capture_steps:

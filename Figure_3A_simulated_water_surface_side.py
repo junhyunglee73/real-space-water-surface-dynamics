@@ -46,7 +46,7 @@ w_squared = (stiffness_k / mass_m) - gamma**2
 natural_freq = np.sqrt(w_squared) if w_squared > 0 else 0.0
 
 # ========================================
-# Causal Kernel & Logic
+# Causal Kernel 
 # ========================================
 def causal_record_kernel(t_current, src):
     local_time = t_current - src["start_time"]
@@ -76,10 +76,11 @@ def get_dist_to_walls(pos):
 snap_surface_2d = []
 snap_cross_1d   = []
 capture_times   = []
-capture_steps = [100, 250, 450, 600, 850]
+capture_steps = [0, 250, 450, 600]
 
 for step in range(T_steps + 1):
-    current_time = step * dt
+   # Modulate time progression by beta at the source location
+    current_time = step * dt * beta_field[cy, cx] 
     # Check each source for potential wall interactions and generate new sources if needed
     new_borns = []
     for src in sources:
@@ -87,7 +88,7 @@ for step in range(T_steps + 1):
         prop_radius = V_record * (current_time - src["start_time"])
         
         for side, d in dists.items():
-            # 1) positive distance to wall, 2) wave has reached the wall, 3) not already triggered from this side
+            # 1) positive distance to wall, 2) force has reached the wall, 3) not already triggered from this side
             if d > 0 and prop_radius >= d and not src["triggered"][side]:
                 # block self-triggering to prevent infinite loops
                 if src["parent_side"] == side: continue 
@@ -135,7 +136,7 @@ for i in range(num_snaps):
     im = axes[0, i].imshow(snap_surface_2d[i], cmap="seismic", norm=norm, origin="lower")
     axes[0, i].set_title(f"t={capture_times[i]}\nActive Sources: {len([s for s in sources if s['start_time'] <= capture_times[i]*dt])}", fontsize=10)
     
-    # Wall Drawing
+  
     rect = plt.Rectangle((l_wall, b_wall), w_inside, h_inside, linewidth=1.5, edgecolor='black', facecolor='none', alpha=0.7)
     axes[0, i].add_patch(rect)
     

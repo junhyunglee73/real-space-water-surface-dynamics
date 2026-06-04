@@ -14,15 +14,15 @@ y, x = np.ogrid[:HEIGHT, :WIDTH]
 dist_map = np.sqrt((x - cx)**2 + (y - cy)**2)
 
 # ========================================
-# Spatial Structural Field (beta) & Amplitude Field
+# Spatial Structural Field (beta) & Amplitude 
 # ========================================
 beta_field = np.ones((HEIGHT, WIDTH)) * 1.0
 
 input_force_magnitude = 15.0
-A_field = input_force_magnitude * beta_field 
+
 
 # ========================================
-# Physical Parameters (The Causes)
+# Physical Parameters 
 # ========================================
 stiffness_k = 0.5
 mass_m = 20.0
@@ -63,9 +63,10 @@ capture_times   = []
 capture_steps = [50, 150, 300, 450, 500]
 
 for step in range(T_steps + 1):
-    current_time = step * dt
+     # Modulate time progression by beta at the source location
+    current_time = step * dt * beta_field[cy, cx] 
 
-  
+    A_field = input_force_magnitude * beta_field 
     surface_record = A_field * causal_record_kernel(current_time, dist_map)
 
     if step in capture_steps:

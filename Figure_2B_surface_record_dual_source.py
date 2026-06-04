@@ -13,7 +13,6 @@ from matplotlib.colors import TwoSlopeNorm
 
 HEIGHT, WIDTH = 400, 400
 dx = 1.0
-
 dt = 0.5
 T_steps = 800
 
@@ -36,15 +35,14 @@ dist_maps = [
 ]
 
 # ========================================
-# Spatial Structural Field (beta) & Amplitude Field
+# Spatial Structural Field (beta) & Amplitude 
 # ========================================
 beta_field = np.ones((HEIGHT, WIDTH)) * 1.0
-
 input_force_magnitude = 5.0
-A_field = input_force_magnitude * beta_field 
+
 
 # ========================================
-# Physical Parameters (The Causes)
+# Physical Parameters 
 # ========================================
 stiffness_k = 0.5
 mass_m = 50.0
@@ -97,8 +95,9 @@ capture_times = []
 capture_steps = [150, 300, 450, 600, 750]
 
 for step in range(T_steps + 1):
-    current_time = step * dt
-
+    # Modulate time progression by beta at the source location
+    current_time = step * dt * beta_field[cy, cx] 
+    A_field = input_force_magnitude * beta_field 
     # --- Superposition of causal records ---
     total_surface_record = np.zeros((HEIGHT, WIDTH))
 
