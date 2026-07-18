@@ -1,4 +1,4 @@
-# Deterministic Origin of Symmetry in Confined Water Surfaces: A Structural Approach Based on Causal Recording of Local Rules 
+# A Causal Local Recording Framework for Deterministic Pattern Formation: Emergence of Geometric Symmetry on Water Surfaces
 
 This repository contains the simulation codes used in the manuscript:
 
@@ -34,9 +34,6 @@ This repository contains the simulation codes used in the manuscript:
 
 - `Figure_S4_symmetrical_geometric_order_randmonized_event.py
 
-- `Figure_S5_simulated_water_surface_external_dissipation.py
-
-- `Figure_S6_simulated_water_surface_glass.py
 
 ## Notes
 The scripts are provided to support transparency and reproducibility of the proposed formulation. 
