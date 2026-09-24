@@ -36,6 +36,9 @@ This repository contains the simulation codes used in the manuscript:
 - `Figure_S4_symmetrical_geometric_order_randmonized_event.py`  
   Robustness of temporal symmetry under stochastic spatial and temporal inputs.
 
+- `Figure_S5_Surface patterns validation of the external dissipation.py`  
+  Surface patterns validation of the external dissipation.
+
 
 
 ## Notes
