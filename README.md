@@ -1,9 +1,9 @@
-# A Causal Local Recording Framework for Deterministic Pattern Formation: Emergence of Geometric Symmetry on Water Surfaces
+# A Causal Local Recording Framework for Deterministic Pattern Formation
 
 This repository contains the simulation codes used in the manuscript:
 
-"Deterministic Origin of Symmetry in Confined Water Surfaces: A Structural Approach Based on Causal Recording of Local Rules "
-
+"A Physically Grounded Discrete Causal Recording Formalism Based on Spatiotemporal Isolation for Surface Propagation Pattern Reconstruction "
+DOI: 10.26434/chemrxiv.10001715/v3
 
 ## Requirements
 - Python 3.x
